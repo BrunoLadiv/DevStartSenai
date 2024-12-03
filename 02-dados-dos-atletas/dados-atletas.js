@@ -21,21 +21,63 @@ class AtletaDados {
     }
   }
 
-  calculaIMC() {}
+  calculaIMC() {
+    return this.peso / (this.altura * this.altura);
+  }
 
-  calculaMediaValida() {}
+  calculaMediaValida() {
+    const notasOrdenadas = this.notas.sort((a, b) => a - b);
+    const notasValidas = notasOrdenadas.slice(1, -1);
+    const media =
+      notasValidas.reduce((acc, nota) => acc + nota, 0) / notasValidas.length;
+    return media;
+  }
 
-  obtemNomeAtleta() {}
+  obtemNomeAtleta() {
+    return this.nome;
+  }
 
-  obtemIdadeAtleta() {}
+  obtemIdadeAtleta() {
+    return this.idade;
+  }
 
-  obtemPesoAtleta() {}
+  obtemPesoAtleta() {
+    return this.peso;
+  }
+  obtemAlturaAtleta() {
+    return this.altura;
+  }
 
-  obtemNotasAtleta() {}
+  obtemNotasAtleta() {
+    return this.notas;
+  }
 
-  obtemCategoria() {}
+  obtemCategoria() {
+    return this.calcularCategoria();
+  }
 
-  obtemIMC() {}
+  obtemIMC() {
+    return this.calculaIMC();
+  }
 
-  obtemMediaValida() {}
+  obtemMediaValida() {
+    return this.calculaMediaValida();
+  }
 }
+
+const atleta1 = new AtletaDados(
+  "Cesar Abascal",
+  30,
+  80,
+  1.7,
+  [10, 9.34, 8.42, 10, 7.88],
+);
+
+console.log(`Nome: ${atleta1.obtemNomeAtleta()}`);
+console.log(`Idade: ${atleta1.obtemIdadeAtleta()}`);
+console.log(`Peso: ${atleta1.obtemPesoAtleta()}`);
+console.log(`Altura: ${atleta1.obtemAlturaAtleta()}`);
+console.log(`Notas: ${atleta1.obtemNotasAtleta()}`);
+console.log(`Categoria: ${atleta1.obtemCategoria()}`);
+console.log(`IMC: ${atleta1.obtemIMC()}`);
+console.log(`Média válida: ${atleta1.obtemMediaValida()}\n`);
